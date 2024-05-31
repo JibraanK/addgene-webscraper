@@ -110,24 +110,6 @@ def scrape_page(soup):
             plasmids.append(plasmid_info)
         except Exception as e:
             print(f"Error extracting data for a plasmid: {e}")
-            # print("Previous plasmid_id " + plasmids[-1]["Title"])
-            # print("Previous promoter name " + plasmids[-1]["Promoter"])
-            # print("Title: "+title)
-            # print("ID: "+catalog_number)
-            # if purpose == plasmids[-1]["Purpose"]:
-            #     print("same purpose as last one!")
-            # else:
-            #     print("Purpose: "+purpose)
-            # print("Depositor: "+depositor)
-            # print("Article Name: "+article_name)
-            # print("Article Link: "+article_link)
-            # print("Plasmid Type: "+plasmid_type)
-            # print("Use: "+use)
-            # print("Expression: "+expression)
-            # print("Promoter: "+promoter)
-            # print("Availability: "+availability)
-            # print("Mutation: "+mutation)
-            # print("Tags: "+tags+"\n")
 
     return plasmids
 
@@ -135,30 +117,10 @@ def scrape_page(soup):
 driver = webdriver.Chrome()  # Ensure chromedriver is in your PATH
 
 # URL to be accessed
-url = "https://www.addgene.org/search/catalog/plasmids/?q=&page_size=50&plasmid_type=Empty+backbone"
+url = "insert desired url -> search addgene"
 driver.get(url)
 
-
-# full while loop (only run when there is time to do so lol)
-# while True:
-#     # Get page source and close the driver
-#     page_source = driver.page_source
-
-#     # Parse the HTML content using BeautifulSoup
-#     soup = BeautifulSoup(page_source, "html.parser")
-
-#     plasmids_full.extend(scrape_page(soup, plasmids_full))
-
-#     next_button = WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[3]/main/div/div[1]/div[3]/ul/li[5]/a')))
-#     if next_button:
-#         next_button.click()
-#     else:
-#         break
-
 while True:
-    # Wait for the page to load
-    #time.sleep(1)
-
     # Get page source and close the driver
     page_source = driver.page_source
 
@@ -168,7 +130,7 @@ while True:
     plasmids_full.extend(scrape_page(soup))
 
     # check to see if reached max page number (currently 180) -> this is not the ideal way of checking but it should work
-    url = ""+driver.current_url
+    url = driver.current_url
     if url == "https://www.addgene.org/search/catalog/plasmids/?q=&page_size=50&plasmid_type=Empty+backbone&page_number=180#" or url == "https://www.addgene.org/search/catalog/plasmids/?q=&page_size=50&plasmid_type=Empty+backbone&page_number=180":
         break
     else:
