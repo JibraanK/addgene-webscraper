@@ -19,21 +19,27 @@ This repository contains a Python script for scraping plasmid data from the Addg
 ## Installation
 
 1. Clone this repository:
-''' git clone https://github.com/yourusername/addgene-webscraper.git
-cd addgene-webscraper ''' 
+```
+git clone https://github.com/yourusername/addgene-webscraper.git
+cd addgene-webscraper
+``` 
 
-2. Install the required Python packages:
-'''pip install beautifulsoup4 selenium'''
+3. Install the required Python packages:
+```
+pip install beautifulsoup4 selenium
+```
 
-3. Download and install the Chrome WebDriver that matches your Chrome browser version.
+5. Download and install the Chrome WebDriver that matches your Chrome browser version.
 
 ## Usage
 
 1. Run the script:
-''' python webscraper.py'''
-2. The script will start scraping data from Addgene, beginning with the first page of empty backbone plasmids.
+```
+python webscraper.py
+```
+3. The script will start scraping data from Addgene, beginning with the first page of empty backbone plasmids.
 
-3. Once complete, the data will be saved to `plasmid_data.csv` in the same directory.
+4. Once complete, the data will be saved to `plasmid_data.csv` in the same directory.
 
 ## Output
 
